@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Angular Application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body>
+    <div class="mainContainer" ng-controller="MainController as main">
+        <div class="header">
+            <h1>Task Traker</h1>
+            <p>v2.0</p>
+        </div>
+        <div class="box1">
+            <form ng-submit="main.addTask();">
+                <h3>Create a task</h3>
+                <p>Task Name</p>
+                <input type="text" placeholder="Name" ng-model="main.newName" />
+                <br>
+                <p>Date</p>
+                <input type="text" placeholder="Date" ng-model="main.newDate" />
+                <br>
+                <p>Assigned To</p>
+                <input type="text" placeholder="Assigned" ng-model="main.newAssigned" />
+                <br>
+                <br>
+                <button type="submit">
+                    submit
+                </button>
+            </form>
+        </div>
+        <div class="box2">
+            <h2>Existin Tasks</h2>
+            <table>
+                <tr ng-repeat="mainForm in main.taskTraker">
+                    <td>{{ mainForm.name }}</td>
+                    <td>{{ mainForm.date }}</td>
+                    <td>{{ mainForm.assigned}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="./js/app.js"></script>
+    <script src="./js/MainController.js"></script>
+    <script src="./js/UserService.js"></script>
+</body>
+
+</html>
